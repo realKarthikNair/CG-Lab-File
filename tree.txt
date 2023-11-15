@@ -1,0 +1,19 @@
+CG LAB
+├── lab file
+│   ├── code-to-md.py
+│   ├── programs
+│   │   ├── core1a.cpp
+│   │   ├── core1b.cpp
+│   │   ├── core1c.cpp
+│   │   ├── ...
+│   ├── programs.md
+│   ├── screenshots
+│   │   ├── core1a.png
+│   │   ├── core1b.png
+│   │   ├── core1c.png
+│   │   ├── ...
+│   ├── screenshots.md
+│   └── ss_md.sh
+├── Makefile
+├── README.md
+└── setting_up.md
