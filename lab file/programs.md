@@ -242,35 +242,25 @@ void MidpointCircle(int xc, int yc, int radius, int delay_time) {
     int x = radius;
     int y = 0;
     int p = 1 - radius;
-
     char buffer[50];
     settextstyle(DEFAULT_FONT, HORIZ_DIR, 4);
-
     while (x > y) {
         putpixel(xc + x, yc - y, WHITE);
         std::cout << "Putpixel at (" << xc + x << ", " << yc - y << ")" << std::endl;
-        
         putpixel(xc - x, yc - y, WHITE);
         std::cout << "Putpixel at (" << xc - x << ", " << yc - y << ")" << std::endl;
-        
         putpixel(xc + x, yc + y, WHITE);
         std::cout << "Putpixel at (" << xc + x << ", " << yc + y << ")" << std::endl;
-        
         putpixel(xc - x, yc + y, WHITE);
         std::cout << "Putpixel at (" << xc - x << ", " << yc + y << ")" << std::endl;
-        
         putpixel(xc + y, yc - x, WHITE);
         std::cout << "Putpixel at (" << xc + y << ", " << yc - x << ")" << std::endl;
-        
         putpixel(xc - y, yc - x, WHITE);
         std::cout << "Putpixel at (" << xc - y << ", " << yc - x << ")" << std::endl;
-        
         putpixel(xc + y, yc + x, WHITE);
         std::cout << "Putpixel at (" << xc + y << ", " << yc + x << ")" << std::endl;
-        
         putpixel(xc - y, yc + x, WHITE);
         std::cout << "Putpixel at (" << xc - y << ", " << yc + x << ")" << std::endl;
-
         y++;
 
         if (p <= 0)
@@ -282,31 +272,22 @@ void MidpointCircle(int xc, int yc, int radius, int delay_time) {
 
         if (x < y)
             break;
-
         putpixel(xc + x, yc - y, WHITE);
         std::cout << "Putpixel at (" << xc + x << ", " << yc - y << ")" << std::endl;
-
         putpixel(xc - x, yc - y, WHITE);
         std::cout << "Putpixel at (" << xc - x << ", " << yc - y << ")" << std::endl;
-        
         putpixel(xc + x, yc + y, WHITE);
         std::cout << "Putpixel at (" << xc + x << ", " << yc + y << ")" << std::endl;
-        
         putpixel(xc - x, yc + y, WHITE);
         std::cout << "Putpixel at (" << xc - x << ", " << yc + y << ")" << std::endl;
-        
         putpixel(xc + y, yc - x, WHITE);
         std::cout << "Putpixel at (" << xc + y << ", " << yc - x << ")" << std::endl;
-        
         putpixel(xc - y, yc - x, WHITE);
         std::cout << "Putpixel at (" << xc - y << ", " << yc - x << ")" << std::endl;
-        
         putpixel(xc + y, yc + x, WHITE);
         std::cout << "Putpixel at (" << xc + y << ", " << yc + x << ")" << std::endl;
-        
         putpixel(xc - y, yc + x, WHITE);
         std::cout << "Putpixel at (" << xc - y << ", " << yc + x << ")" << std::endl;
-
         delay(delay_time);
     }
 }
@@ -314,9 +295,7 @@ void MidpointCircle(int xc, int yc, int radius, int delay_time) {
 int main() {
     int gd = DETECT, gm;
     initgraph(&gd, &gm, NULL);
-
     MidpointCircle(400, 250, 100, 10);
-
     getch();
     closegraph();
     return 0;
@@ -387,6 +366,168 @@ int main() {
     closegraph();
     return 0;
 }
+
+```
+
+### 10.  Translation in 2D
+```c
+// Part 1: Translation of a point
+
+#include <iostream>
+
+struct Point {
+    int x;
+    int y;
+};
+
+void translatePoint(Point& p, int Tx, int Ty) {
+    p.x += Tx;
+    p.y += Ty;
+}
+
+int main() {
+    Point myPoint = {10, 20};
+    std::cout << "Original Point: (" << myPoint.x << ", " << myPoint.y << ")\n";
+    translatePoint(myPoint, 5, 8);
+    std::cout << "Translated Point: (" << myPoint.x << ", " << myPoint.y << ")\n";
+    return 0;
+}
+
+```
+
+### 11.  Translation in 2D
+```c
+// Part 2: Translation of a line
+
+#include <graphics.h>
+#include <iostream>
+
+struct Line {
+    int x1, y1, x2, y2;
+};
+
+void translateLine(Line& line, int Tx, int Ty) {
+    line.x1 += Tx;
+    line.y1 += Ty;
+    line.x2 += Tx;
+    line.y2 += Ty;
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+    Line myLine = {100, 100, 200, 200};
+    std::cout << "Original Line: (" << myLine.x1 << ", " << myLine.y1 << ") to (" << myLine.x2 << ", " << myLine.y2 << ")\n";
+    line(myLine.x1, myLine.y1, myLine.x2, myLine.y2);
+    int Tx = 30, Ty = 40;
+    translateLine(myLine, Tx, Ty);
+    std::cout << "Translated Line: (" << myLine.x1 << ", " << myLine.y1 << ") to (" << myLine.x2 << ", " << myLine.y2 << ")\n";
+    line(myLine.x1, myLine.y1, myLine.x2, myLine.y2);
+    getch();
+    closegraph();
+    return 0;
+}
+
+```
+
+### 12.  Translation in 2D
+```c
+// Part 3: Translation of a polygon (triangle)
+
+#include <graphics.h>
+#include <iostream>
+
+struct Point {
+    int x, y;
+};
+
+struct Triangle {
+    Point p1, p2, p3;
+};
+
+void translateTriangle(Triangle& triangle, int Tx, int Ty) {
+    triangle.p1.x += Tx;
+    triangle.p1.y += Ty;
+    triangle.p2.x += Tx;
+    triangle.p2.y += Ty;
+    triangle.p3.x += Tx;
+    triangle.p3.y += Ty;
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+    Triangle myTriangle = {{100, 100}, {200, 200}, {300, 100}};
+    std::cout << "Original Triangle: (" << myTriangle.p1.x << ", " << myTriangle.p1.y << "), (" << myTriangle.p2.x << ", " << myTriangle.p2.y << "), (" << myTriangle.p3.x << ", " << myTriangle.p3.y << ")\n";
+    line(myTriangle.p1.x, myTriangle.p1.y, myTriangle.p2.x, myTriangle.p2.y);
+    line(myTriangle.p2.x, myTriangle.p2.y, myTriangle.p3.x, myTriangle.p3.y);
+    line(myTriangle.p3.x, myTriangle.p3.y, myTriangle.p1.x, myTriangle.p1.y);
+    int Tx = 30, Ty = 40;
+    translateTriangle(myTriangle, Tx, Ty);
+    std::cout << "Translated Triangle: (" << myTriangle.p1.x << ", " << myTriangle.p1.y << "), (" << myTriangle.p2.x << ", " << myTriangle.p2.y << "), (" << myTriangle.p3.x << ", " << myTriangle.p3.y << ")\n";
+    line(myTriangle.p1.x, myTriangle.p1.y, myTriangle.p2.x, myTriangle.p2.y);
+    line(myTriangle.p2.x, myTriangle.p2.y, myTriangle.p3.x, myTriangle.p3.y);
+    line(myTriangle.p3.x, myTriangle.p3.y, myTriangle.p1.x, myTriangle.p1.y);
+    getch();
+    closegraph();
+    return 0;
+}
+```
+
+### 13.  Rotation in 2D
+```c
+
+#include <graphics.h>
+#include <cmath>
+#include <iostream>
+
+struct Point {
+    int x, y;
+};
+
+void drawTriangle(const Point& p1, const Point& p2, const Point& p3) {
+    line(p1.x, p1.y, p2.x, p2.y);
+    line(p2.x, p2.y, p3.x, p3.y);
+    line(p3.x, p3.y, p1.x, p1.y);
+}
+
+void rotatePoint(Point& p, double angle) {
+    double const PI = 3.14159265358979323;
+    double radians = angle * (PI / 180.0);
+    double x = p.x;
+    double y = p.y;
+    
+    p.x = x * cos(radians) - y * sin(radians);
+    p.y = x * sin(radians) + y * cos(radians);
+}
+
+void rotateTriangle(Point& p1, Point& p2, Point& p3, double angle) {
+    rotatePoint(p1, angle);
+    rotatePoint(p2, angle);
+    rotatePoint(p3, angle);
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    Point p1 = {100, 100};
+    Point p2 = {200, 200};
+    Point p3 = {300, 100};
+
+    std::cout << "Original Triangle: \n (" << p1.x << ", " << p1.y << "), (" << p2.x << ", " << p2.y << "), (" << p3.x << ", " << p3.y << ")\n";
+
+    drawTriangle(p1, p2, p3);
+    rotateTriangle(p1, p2, p3, 45.0);
+
+    std::cout << "Rotated Triangle: \n (" << p1.x << ", " << p1.y << "), (" << p2.x << ", " << p2.y << "), (" << p3.x << ", " << p3.y << ")\n";
+
+    drawTriangle(p1, p2, p3);
+    getch();
+    closegraph();
+    return 0;
+}
+
 
 ```
 
