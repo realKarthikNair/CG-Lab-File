@@ -4,6 +4,8 @@ Screenshots are in [lab file/screenshots](/lab%20file/screenshots/) directory.
 
 Setup instructions for Linux are in [setting_up](setting_up.md) file. 
 
+Setup instructions for WINDOWS can be found [here](https://github.com/ullaskunder3/Solution-to-graphics.h#general-info)
+
 Vscode launch and task files for Fedora Linux are in [.vscode](/.vscode/) directory.
 
 These programs were written and tested on Linux. 

@@ -4,7 +4,7 @@ Table of Contents
 
 * [Ubuntu/Pop!_OS/Debian based distros](#for-ubuntupop_osdebian-based-distros)
 * [Fedora/RedHat based distros](#for-fedoraredhat-based-distros)
-* [Windows](#for-windows)
+* [Windows](https://github.com/ullaskunder3/Solution-to-graphics.h#general-info)
 
 ### For Ubuntu/Pop!_OS/Debian based distros
 
@@ -92,7 +92,3 @@ Download the rpm package from [here](https://sdl-bgi.sourceforge.io/#:~:text=com
       gcc -o program program0.c -lSDL_bgi -lSDL2
       ```
 
-
-### For Windows
-
-_Trust me I tried. I just can't make it work on Windows with gcc or g++._
