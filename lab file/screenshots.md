@@ -88,3 +88,7 @@
 
 ![Screenshot 22](screenshots/core7.png)
 
+23. dcore10.png
+
+![Screenshot 23](screenshots/dcore10.png)
+
