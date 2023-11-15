@@ -1,3 +1,6 @@
+// Circle Algorithms
+// Part 1 : Midpoint Circle Drawing Algorithm
+
 #include <graphics.h>
 #include <stdio.h>
 #include <string>
