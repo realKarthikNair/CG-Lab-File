@@ -1,3 +1,6 @@
+// Line Drawing Algorithms (DDA & Bresenham‟s Algorithm)
+// Part 2 : Bresenham‟s Line Drawing Algorithm
+
 #include <graphics.h>
 #include <stdio.h>
 #include <cmath>
