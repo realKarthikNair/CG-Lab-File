@@ -1,4 +1,4 @@
-The code files are in [lab file](/lab%20file/) directory. Also check [programs.md](lab%20file/programs.md) file.
+The code files are in [lab file](/lab%20file/programs) directory. Also check [programs.md](lab%20file/programs.md) file.
 
 
 Screenshots are in [lab file/screenshots](/lab%20file/screenshots/) directory. Also check [screenshots.md](lab%20file/screenshots.md) file.
