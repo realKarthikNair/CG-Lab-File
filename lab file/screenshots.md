@@ -84,3 +84,7 @@
 
 ![Screenshot 21](screenshots/core6.png)
 
+22. core7.png
+
+![Screenshot 22](screenshots/core7.png)
+
