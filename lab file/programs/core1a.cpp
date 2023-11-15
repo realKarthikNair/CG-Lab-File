@@ -8,7 +8,7 @@ int main()
 {
     int gd = DETECT, gm;
     initgraph(&gd, &gm, NULL);
-    circle(100, 100, 50);
+    circle(400, 250, 100);
     getch();
     closegraph();
 }
