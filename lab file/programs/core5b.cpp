@@ -25,8 +25,7 @@ int main() {
     translateLine(myLine, Tx, Ty);
     std::cout << "Translated Line: (" << myLine.x1 << ", " << myLine.y1 << ") to (" << myLine.x2 << ", " << myLine.y2 << ")\n";
     line(myLine.x1, myLine.y1, myLine.x2, myLine.y2);
-    delay(5000); // Wait for 5 seconds
-    closegraph();
     getch();
+    closegraph();
     return 0;
 }
