@@ -20,6 +20,7 @@ void DDA_Algo(int x1, int y1, int x2, int y2, int delay_time)
     settextstyle(DEFAULT_FONT, HORIZ_DIR, 4); 
     for (int i = 0; i < iter; i++)
     {
+        printf("(%lf, %lf)\n", x, y);
         putpixel(round(x), round(y), WHITE);
         sprintf(buffer, "(%d, %d)", static_cast<int>(round(x)), static_cast<int>(round(y)));
         outtextxy(10, 10, buffer);
