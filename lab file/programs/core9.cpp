@@ -1,3 +1,5 @@
+// Shearing in 2D
+
 #include <graphics.h>
 
 void drawOriginalShape() {

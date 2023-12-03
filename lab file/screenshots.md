@@ -88,19 +88,43 @@
 
 ![Screenshot 22](screenshots/core7.png)
 
-23. dcore10.png
+23. core8-ashape.png
 
-![Screenshot 23](screenshots/dcore10.png)
+![Screenshot 23](screenshots/core8-ashape.png)
 
-24. eAB1.png
+24. core8-reflection.png
 
-![Screenshot 24](screenshots/eAB1.png)
+![Screenshot 24](screenshots/core8-reflection.png)
 
-25. eAB2.png
+25. core9-ashape.png
 
-![Screenshot 25](screenshots/eAB2.png)
+![Screenshot 25](screenshots/core9-ashape.png)
 
-26. eAB3.png
+26. core9-sheared.png
 
-![Screenshot 26](screenshots/eAB3.png)
+![Screenshot 26](screenshots/core9-sheared.png)
+
+27. dcore10.png
+
+![Screenshot 27](screenshots/dcore10.png)
+
+28. eAB1.png
+
+![Screenshot 28](screenshots/eAB1.png)
+
+29. eAB2.png
+
+![Screenshot 29](screenshots/eAB2.png)
+
+30. eAB3.png
+
+![Screenshot 30](screenshots/eAB3.png)
+
+31. eAB4.png
+
+![Screenshot 31](screenshots/eAB4.png)
+
+32. eAB5.png
+
+![Screenshot 32](screenshots/eAB5.png)
 

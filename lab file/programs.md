@@ -581,7 +581,76 @@ int main() {
 }
 ```
 
-### 15.  Cohen Sutherland's Algorithm
+### 15.  Reflection in 2D
+```c
+
+#include <graphics.h>
+
+void drawOriginalShape() {
+    setcolor(RED);
+    rectangle(100, 100, 200, 200);
+}
+
+void drawReflectedShape() {
+    setcolor(BLUE);
+    rectangle(100, getmaxy() - 100, 200, getmaxy() - 200);
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+    drawOriginalShape(); 
+    delay(2000); 
+    cleardevice(); 
+    drawReflectedShape();  
+    getch();
+    closegraph();
+    return 0;
+}
+
+```
+
+### 16.  Shearing in 2D
+```c
+
+#include <graphics.h>
+
+void drawOriginalShape() {
+    setcolor(RED);
+    rectangle(100, 100, 200, 200);
+}
+
+void drawShearedShape() {
+    setcolor(BLUE);
+
+    int shearX = 1; 
+    int shearY = 0; 
+    int x1 = 100 + shearX * 100;
+    int y1 = 100 + shearY * 100;
+    int x2 = 200 + shearX * 100;
+    int y2 = 200 + shearY * 100;
+
+    rectangle(x1, y1, x2, y2);
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    drawOriginalShape();
+    delay(2000);
+    cleardevice();
+    
+    drawShearedShape();
+
+    getch();
+    closegraph();
+    return 0;
+}
+
+```
+
+### 17.  Cohen Sutherland's Algorithm
 ```c
 
 #include <graphics.h>
@@ -681,7 +750,7 @@ int main() {
 
 ```
 
-### 16.  Program to rotate a circle outside another circle
+### 18.  Program to rotate a circle outside another circle
 ```c
 
 #include <graphics.h>
@@ -713,7 +782,7 @@ int main() {
 
 ```
 
-### 17.  Program to draw Flying Balloons
+### 19.  Program to draw Flying Balloons
 ```c
 
 #include <graphics.h>
@@ -761,7 +830,7 @@ int main() {
 
 ```
 
-### 18.  Show Bouncing Ball Animation
+### 20.  Show Bouncing Ball Animation
 ```c
 
 #include <graphics.h>
@@ -794,6 +863,127 @@ int main() {
         setcolor(0);
         setfillstyle(1, 10);
         fillellipse(x, y, 15, 15);
+    }
+
+    getch();
+    closegraph();
+    return 0;
+}
+
+```
+
+### 21.  Making an Analog Clock
+```c
+
+#include <graphics.h>
+#include <math.h>
+#include <time.h>
+
+#define PI 3.14159265358979323846
+
+void drawClock() {
+    int centerX = getmaxx() / 2;
+    int centerY = getmaxy() / 2;
+    int radius = 200;
+
+    circle(centerX, centerY, radius);
+    circle(centerX, centerY, 5);
+
+    for (int i = 0; i < 12; i++) {
+        int x = centerX + radius * cos(PI / 2 - i * PI / 6);
+        int y = centerY - radius * sin(PI / 2 - i * PI / 6);
+        circle(x, y, 5);
+    }
+}
+
+void drawHourHand() {
+    int centerX = getmaxx() / 2;
+    int centerY = getmaxy() / 2;
+    int radius = 200;
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    int x = centerX + radius * cos(PI / 2 - (ltm->tm_hour % 12) * PI / 6);
+    int y = centerY - radius * sin(PI / 2 - (ltm->tm_hour % 12) * PI / 6);
+
+    line(centerX, centerY, x, y);
+}
+
+void drawMinuteHand() {
+    int centerX = getmaxx() / 2;
+    int centerY = getmaxy() / 2;
+    int radius = 200;
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    int x = centerX + radius * cos(PI / 2 - ltm->tm_min * PI / 30);
+    int y = centerY - radius * sin(PI / 2 - ltm->tm_min * PI / 30);
+
+    line(centerX, centerY, x, y);
+}
+
+void drawSecondHand() {
+    int centerX = getmaxx() / 2;
+    int centerY = getmaxy() / 2;
+    int radius = 200;
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    int x = centerX + radius * cos(PI / 2 - ltm->tm_sec * PI / 30);
+    int y = centerY - radius * sin(PI / 2 - ltm->tm_sec * PI / 30);
+
+    line(centerX, centerY, x, y);
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    while (true) {
+        cleardevice();
+        drawClock();
+        drawHourHand();
+        drawMinuteHand();
+        drawSecondHand();
+        delay(1000);
+    }
+
+    getch();
+    closegraph();
+    return 0;
+}
+
+```
+
+### 22.  Show Moving Car Animation
+```c
+
+#include <graphics.h>
+
+
+void drawCar(int x, int y) {
+    setcolor(RED);
+    rectangle(x, y, x + 100, y + 50);
+    rectangle(x + 20, y - 20, x + 80, y);
+    circle(x + 30, y + 50, 10);
+    circle(x + 70, y + 50, 10);
+}
+
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    int x = 0;
+    int y = getmaxy() / 2;
+
+    while (x < getmaxx()) {
+        cleardevice();
+        drawCar(x, y);
+        delay(10);
+        x++;
     }
 
     getch();
