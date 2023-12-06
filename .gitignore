@@ -1,4 +1,16 @@
 lab/
 *bin/
-CG-Lab-File.docx
 .~lock*
+lab file/mdpdf.log
+*.ttf
+mdpdf.log
+lab file/cover_page.tex
+lab file/cover.html
+lab file/cover.pdf
+lab file/file_generator.py
+lab file/file.md
+lab file/generate-prac-file.sh
+lab file/ggsipu_logo.png
+lab file/index_page.html
+lab file/index.pdf
+lab file/style.css
